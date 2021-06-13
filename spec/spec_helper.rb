@@ -20,9 +20,12 @@ require 'simplecov-console'
 
 SimpleCov.formatters = SimpleCov::Formatter::Console
 
-SimpleCov.minimum_coverage 90
+SimpleCov.minimum_coverage 95
 
 SimpleCov.start do
+  add_filter '/spec/spec_helper'
+  add_filter '/spec/rails_helper'
+
   add_group 'Models', 'app/models'
   add_group 'Helpers', 'app/helpers'
   add_group 'Services', 'app/services'

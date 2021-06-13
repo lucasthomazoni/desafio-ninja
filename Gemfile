@@ -6,6 +6,7 @@ ruby '2.7.3'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap'
+gem 'date_validator'
 gem 'dotenv-rails'
 gem 'jsonapi-serializer'
 gem 'jwt'
