@@ -10,7 +10,7 @@ class Meet < ApplicationRecord
     finished: 'finished'
   }
 
-  validate :period_conflict, if: :should_validate_period?
+  validate :period_conflict, if: :should_validate_period?, on: :create
 
   validates :name,
             :status,

@@ -3,7 +3,6 @@
 FactoryBot.define do
   factory :scheduled_meet, class: 'Meet' do
     name { "#{Faker::Company.unique.name} Meet" }
-    scheduled_at { DateTime.now }
     starts_at { DateTime.now + 30.minutes }
     ends_at { DateTime.now + 60.minutes }
     status { :scheduled }

@@ -38,4 +38,20 @@ RSpec.describe Meet, type: :model do
       )
     end
   end
+
+  context 'when canceling a meet' do
+    let(:meet) { create(:scheduled_meet) }
+
+    before do
+      meet.cancel!
+    end
+
+    it 'updates the meet status' do
+      expect(meet.status).to eq('canceled')
+    end
+
+    it 'persists the `canceled_at` attribute' do
+      expect(meet.canceled_at).to_not be_blank
+    end
+  end
 end
