@@ -1,0 +1,57 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.7.3
+  Exclude:
+    - 'bin/*'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
+  NewCops: enable
+
+RSpec/ImplicitExpect:
+  EnforcedStyle: should
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 5
+
+Metrics/BlockLength:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/AbcSize:
+  Max: 81
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 20
+
+Metrics/PerceivedComplexity:
+  Max: 20
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/HashLikeCase:
+  Enabled: true
+  MinBranchesCount: 4
