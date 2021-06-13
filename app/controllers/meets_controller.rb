@@ -34,25 +34,13 @@ class MeetsController < ApplicationController
   end
 
   def destroy
-    if @meet.destroy
-      body = []
-      status = :ok
-    else
-      body = @meet
-      status = :bad_request
-    end
-
-    render_json_api(serializer: MeetSerializer, status: status, body: body)
+    @meet.destroy
+    render_json_api(serializer: MeetSerializer)
   end
 
   def cancel
-    status = if @meet.cancel!
-               :ok
-             else
-               :bad_request
-             end
-
-    render_json_api(serializer: MeetSerializer, status: status, body: @meet)
+    @meet.cancel!
+    render_json_api(serializer: MeetSerializer, body: @meet)
   end
 
   private
