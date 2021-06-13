@@ -4,7 +4,6 @@ class CreateMeets < ActiveRecord::Migration[6.1]
   def change
     create_table :meets do |t|
       t.string :name
-      t.datetime :scheduled_at
       t.datetime :starts_at
       t.datetime :ends_at
       t.string :status, default: 'scheduled'

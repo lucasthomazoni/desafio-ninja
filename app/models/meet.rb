@@ -22,6 +22,11 @@ class Meet < ApplicationRecord
 
   validates :canceled_at, presence: true, if: :canceled?
 
+  def cancel!
+    self.canceled_at = DateTime.now
+    canceled!
+  end
+
   private
 
   def should_validate_period?
