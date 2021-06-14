@@ -25,13 +25,13 @@ RSpec.describe Meet, type: :model do
   end
 
   it 'validates starts_at time' do
-    meet = Meet.new(starts_at: DateTime.now.change(hour: 21))
+    meet = described_class.new(starts_at: DateTime.now.change(hour: 21))
     meet.valid?
     expect(meet.errors[:starts_at]).to be_present
   end
 
   it 'validates ends_at time' do
-    meet = Meet.new(ends_at: DateTime.now.change(hour: 22))
+    meet = described_class.new(ends_at: DateTime.now.change(hour: 22))
     meet.valid?
     expect(meet.errors[:ends_at]).to be_present
   end
@@ -40,8 +40,8 @@ RSpec.describe Meet, type: :model do
     before { create(:scheduled_meet) }
 
     let(:invalid_meet) do
-      described_class.create(starts_at: Meet.first.starts_at,
-                             ends_at: Meet.first.ends_at + 10.minutes)
+      described_class.create(starts_at: described_class.first.starts_at,
+                             ends_at: described_class.first.ends_at + 10.minutes)
     end
 
     it 'validates meet period conflicts' do

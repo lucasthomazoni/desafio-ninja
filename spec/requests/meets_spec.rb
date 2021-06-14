@@ -20,7 +20,7 @@ RSpec.describe 'Meets', type: :request do
     end
 
     it 'returns a 404 Not Found status when not finding a meet' do
-      get "/meets/999"
+      get '/meets/999'
       expect(response).to have_http_status(:not_found)
     end
   end
@@ -74,7 +74,7 @@ RSpec.describe 'Meets', type: :request do
     end
 
     it 'returns a 404 Not Found status when not finding a meet' do
-      patch "/meets/999", params: patch_params
+      patch '/meets/999', params: patch_params
       expect(response).to have_http_status(:not_found)
     end
   end

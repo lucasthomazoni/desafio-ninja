@@ -22,11 +22,11 @@ class Meet < ApplicationRecord
 
   validates :ends_at, date: { after: :starts_at }, if: :ends_at?
 
-  validates :ends_at, date: { after:  Proc.new { |o| o.ends_at.change(hour: 9, min: 0, sec: 0) } }, if: :ends_at?
-  validates :ends_at, date: { before: Proc.new { |o| o.ends_at.change(hour: 18, min: 0, sec: 1) } }, if: :ends_at?
+  validates :ends_at, date: { after:  proc { |o| o.ends_at.change(hour: 9, min: 0, sec: 0) } }, if: :ends_at?
+  validates :ends_at, date: { before: proc { |o| o.ends_at.change(hour: 18, min: 0, sec: 1) } }, if: :ends_at?
 
-  validates :starts_at, date: { after: Proc.new { |o| o.starts_at.change(hour: 8, min: 59, sec: 59) } }, if: :starts_at?
-  validates :starts_at, date: { before: Proc.new { |o| o.starts_at.change(hour: 18, min: 0, sec: 0) } }, if: :starts_at?
+  validates :starts_at, date: { after: proc { |o| o.starts_at.change(hour: 8, min: 59, sec: 59) } }, if: :starts_at?
+  validates :starts_at, date: { before: proc { |o| o.starts_at.change(hour: 18, min: 0, sec: 0) } }, if: :starts_at?
 
   validates :canceled_at, presence: true, if: :canceled?
 

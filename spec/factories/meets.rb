@@ -13,7 +13,7 @@ FactoryBot.define do
 
     factory :canceled_meet do
       status { :canceled }
-      canceled_at { DateTime.new(2021, 06, 14, 9, 10, 0) }
+      canceled_at { DateTime.new(2021, 6, 14, 9, 10, 0) }
     end
   end
 end
