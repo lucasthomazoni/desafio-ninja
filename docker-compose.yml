@@ -1,0 +1,24 @@
+  version: '3.4'
+
+  services:
+    migration:
+      image: $ECR_IMAGE_NAME
+      command: RAILS_ENV=production rails db:setup
+      environment:
+        - DATABASE_URL=$DATABASE_URL
+
+    app:
+      expose:
+        - "4400"
+      image: $ECR_IMAGE_NAME
+      depends_on:
+        - migration
+      ports:
+        - "3000:3000"
+      volumes:
+        - gem_cache:/usr/local/bundle/gems
+      restart: always
+      environment:
+        - DATABASE_URL=$DATABASE_URL
+  volumes:
+    gem_cache:
