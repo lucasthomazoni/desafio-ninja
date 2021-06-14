@@ -34,8 +34,8 @@ RSpec.describe 'Meets', type: :request do
     let(:create_params) do
       {
         name: "#{Faker::Company.unique.name} Meet",
-        starts_at: DateTime.now + 30.minutes,
-        ends_at: DateTime.now + 60.minutes,
+        starts_at: '2021-06-14T13:45:30',
+        ends_at: '2021-06-14T15:45:30',
         room_id: Room.first.id,
         created_by_id: User.first.id
       }
@@ -57,7 +57,9 @@ RSpec.describe 'Meets', type: :request do
 
     let(:patch_params) do
       {
-        name: "#{Faker::Company.unique.name} Meet"
+        name: "#{Faker::Company.unique.name} Meet",
+        starts_at: '2021-06-14T13:45:30',
+        ends_at: '2021-06-14T13:55:30'
       }
     end
 

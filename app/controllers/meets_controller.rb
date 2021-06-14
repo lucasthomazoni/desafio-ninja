@@ -56,7 +56,7 @@ class MeetsController < ApplicationController
   end
 
   def update_params
-    params.permit(:name)
+    params.permit(:name, :starts_at, :ends_at)
   end
 
   def set_meet
